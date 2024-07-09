@@ -14,9 +14,9 @@ if(max(size(ub)) == 1)
 end
 %Initialize the set of random solutions
 X=initialization_SSA(N,dim,ub,lb);
-% Div=[];%ÓÃÓÚ´æ´¢Ã¿Ò»´úµÄ¶àÑùĞÔÖµ
-% epl=[];%ÓÃÓÚ´æ´¢Ã¿Ò»´úµÄÌ½Ë÷ÂÊ
-% ept=[];%ÓÃÓÚ´æ´¢Ã¿Ò»´úµÄ¿ª·¢ÂÊ
+% Div=[];%ç”¨äºå­˜å‚¨æ¯ä¸€ä»£çš„å¤šæ ·æ€§å€¼
+% epl=[];%ç”¨äºå­˜å‚¨æ¯ä¸€ä»£çš„æ¢ç´¢ç‡
+% ept=[];%ç”¨äºå­˜å‚¨æ¯ä¸€ä»£çš„å¼€å‘ç‡
 % Div_temp=[];
 % for j=1:dim
 %     sum1=0;
@@ -106,7 +106,7 @@ while l<=Max_iter
             Destination_fitness=Objective_values(1,i);
         end
     end
-    %¼ÆËãÌ½Ë÷ÂÊÓë¿ª·¢ÂÊ
+    %è®¡ç®—æ¢ç´¢ç‡ä¸å¼€å‘ç‡
 %    for j=1:dim
 %        sum1=0;
 %        for i=1:N
@@ -120,9 +120,9 @@ while l<=Max_iter
     
     
     %% pattern search
-    if rem(l,150)==0
+    if rem(l,90)==0
         [GBestX_temp,~]=pattern_search(Destination_position,dim,fobj);
-        %±ß½ç¿ØÖÆ
+        %è¾¹ç•Œæ§åˆ¶
        for j = 1: dim
            if(GBestX_temp(j)>ub(j))
                GBestX_temp(j) =ub(j);
@@ -131,7 +131,7 @@ while l<=Max_iter
                GBestX_temp(j) =lb(j);
            end
        end
-       %ÆÀ¼Û
+       %è¯„ä»·
        f=fobj(GBestX_temp);
        if f<Destination_fitness
            Destination_position=GBestX_temp;
