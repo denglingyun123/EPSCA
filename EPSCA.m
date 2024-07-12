@@ -77,9 +77,9 @@ while l<=Max_iter
         k1=randperm(4,1);
         for j=1:size(X,2) % in j-th dimension
             r2=(2*pi)*rand();
-            r4=rand();
+            r3=rand();
           %% Elite pool strategy and Brownian motion
-            if r4<0.5
+            if r3<0.5
                 X(i,j)= Elite_pool(k1,j)+RB(i,j)*(r1*sin(r2)*abs(Destination_position(j)-X(i,j)));
             else
                 X(i,j)= Elite_pool(k1,j)+RB(i,j)*(r1*cos(r2)*abs(Destination_position(j)-X(i,j)));
